@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    image: myimg
+    ports:
+      - "8080:80"
+
+
+
+    
