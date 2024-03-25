@@ -1,29 +1,30 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Build and Push Dev') {
-            when {
-                branch 'dev' // Trigger only on dev branch
-            }
+        
+            
+        
+        stage('Change File Permissions') {
             steps {
-                script {
-                    // Build and push Docker image to dev repository
-                    docker.build('my-dev-image:latest').push('dev-repo/my-dev-image:latest')
-                }
+                // Change permissions of deploy.sh script
+                sh 'chmod +x deploy.sh'
+                sh 'chmod +x build.sh'
+            }
+        }  
+        
+        stage('Build') {
+            steps {
+                // Execute deploy.sh script
+                sh './build.sh'
             }
         }
-        stage('Build and Push Prod') {
-            when {
-                branch 'master' // Trigger only on master branch
-            }
+
+        stage('Deploy') {
             steps {
-                script {
-                    // Build and push Docker image to prod repository
-                    docker.build('my-prod-image:latest').push('prod-repo/my-prod-image:latest')
-                }
+                // Execute deploy.sh script
+                sh './deploy.sh'
             }
         }
     }
 }
-
