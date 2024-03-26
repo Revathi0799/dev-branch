@@ -12,11 +12,11 @@ docker login -u revathi0799 -p Revathik@99
 
 # Tag the Docker image
 echo "Tagging the Docker image..."
-docker tag myimg revathi0799/myimg
+docker tag myimg revathi0799/dev
 
 # Push the Docker image to Docker Hub
 echo "Pushing the Docker image to Docker Hub..."
-docker push revathi0799/myimg
+docker push revathi0799/dev
 
 echo "Image pushed to Docker Hub successfully."
 
