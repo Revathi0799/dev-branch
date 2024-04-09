@@ -3,12 +3,11 @@
 # Define variables
 IMAGE_NAME="myimg"
 DOCKER_HUB_USERNAME="revathi0799"
-DOCKER_HUB_PASSWORD="Revathik@99"
 DOCKER_HUB_REPO="revathi0799/myimg"
 
 # Log in to Docker Hub
 echo "Logging in to Docker Hub..."
-docker login -u revathi0799 -p Revathik@99
+docker login -u revathi0799 -p $dockerpassword
 
 # Tag the Docker image
 echo "Tagging the Docker image..."
